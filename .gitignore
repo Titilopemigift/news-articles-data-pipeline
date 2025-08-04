@@ -1,0 +1,5 @@
+terraform/*terraform*
+terraform/py
+airflow_docker/config
+airflow_docker/logs
+airflow_docker/plugins
