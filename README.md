@@ -12,10 +12,11 @@ The pipeline is **orchestrated using Apache Airflow**, making it easy to schedul
 - **Pandas** — Data cleaning and manipulation
 - **Requests** — API data fetching
 - **PostgreSQL (AWS RDS)** — Staging database
+![alt text](docs/news_article_table.png)
 - **Amazon Redshift** — Data warehouse for analytics
 - **Terraform** — Infrastructure as Code (IaC)
 - **Apache Airflow** — Workflow orchestration
-
+![alt text](docs/news_task.png)
 ---
 
 ##  Architecture
@@ -24,5 +25,8 @@ The pipeline is **orchestrated using Apache Airflow**, making it easy to schedul
 3. **Load (Stage)**: Insert cleaned data into AWS RDS PostgreSQL.
 4. **Load (Warehouse)**: Move data from RDS to AWS Redshift.
 5. **Automate**: Schedule the workflow using Apache Airflow.
+
+![alt text](image.png)
+
 
 
