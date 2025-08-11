@@ -79,4 +79,4 @@ def run_pipeline():
     df_news_data = fetch_news_data()
     load_to_rds(df_news_data)
 
-    return run_pipeline
+    return "Pipeline completed successfully"
