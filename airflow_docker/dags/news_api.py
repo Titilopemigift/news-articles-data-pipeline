@@ -59,17 +59,10 @@ def load_to_rds(df):
     cur = conn.cursor()
     for _, row in df.iterrows():
         cur.execute("""
-            INSERT INTO news_articles (
-            source,
-            author,
-            title,
-            description,
-            url,
-            published_at,
-            content
-            )
+            INSERT INTO news_articles (source, author,
+            title,description,url,published_at,content)
             VALUES (%s, %s, %s, %s, %s, %s, %s)
-        """, tuple(row))
+            """, tuple(row))
     conn.commit()
     cur.close()
     conn.close()
