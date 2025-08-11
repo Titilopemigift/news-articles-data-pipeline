@@ -3,3 +3,4 @@ terraform/py
 airflow_docker/config
 airflow_docker/logs
 airflow_docker/plugins
+airflow_docker/_pycache_
