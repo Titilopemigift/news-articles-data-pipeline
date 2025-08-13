@@ -26,10 +26,12 @@ def fetch_news_data():
         "pageSize": 50
     }
     response = requests.get(NEWS_URL, params=params)
-    response.status_code
 
-    articles = response.json().get("articles", [])
-
+    if response.status_code != 200:
+        print(f"Failed to fetch data: {response.status_code}")
+        return pd.DataFrame()
+    data = response.json()
+    articles = data.get("articles", [])
     news_data = []
     for article in articles:
         news_data.append({
