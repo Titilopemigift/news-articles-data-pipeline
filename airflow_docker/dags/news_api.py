@@ -35,8 +35,7 @@ def fetch_news_data():
     news_data = []
     for article in articles:
         news_data.append({
-            "source": article["source"]["name"]
-            if article.get("source") else None,
+            "source": article.get("source", {}).get("name"),
             "author": article.get("author"),
             "title": article.get("title"),
             "description": article.get("description"),
