@@ -1,11 +1,27 @@
-# Tech News ETL Pipeline
+# Tech News ETL Pipeline with Airflow, RDS, and Redshift
 
 ## Project Overview
-This project is an **ETL (Extract, Transform, Load)** pipeline that collects **technology news** from the [NewsAPI](https://newsapi.org/), stores it in an **AWS RDS PostgreSQL** instance, and then transfers it to **AWS Redshift** for analytics.
+This project is an **ETL (Extract, Transform, Load)** pipeline that collects **technology news** from the [NewsAPI](https://newsapi.org/), stores it in an **AWS RDS PostgreSQL** database, and then replicates it into **AWS Redshift** for analytics.
 
-The pipeline is **orchestrated using Apache Airflow**, making it easy to schedule and automate.
+The orchestration is done with Apache Airflow, and Airbyte is used to move data reliably from RDS into Redshift.
 
 ---
+
+## ⚙️ **Architecture**
+
+**Airflow orchestrates the pipeline:**
+
+- Fetch news headlines (API → Pandas DataFrame)
+
+- Load data into RDS PostgreSQL
+
+**Airbyte handles data replication:**
+
+- Syncs data from RDS → Redshift
+
+- Redshift is used as the data warehouse for analytics.
+
+![alt text](docs/News_API_data_Architecture.png)
 
 ##  Tech Stack
 - **Python** — Data extraction & transformation
@@ -21,14 +37,29 @@ The pipeline is **orchestrated using Apache Airflow**, making it easy to schedul
 ![alt text](docs/news_task.png)
 ---
 
-##  Architecture
-1. **Extract**: Fetch technology news articles using NewsAPI.
-2. **Transform**: Clean and standardize article fields (source, author, title, date, etc.).
-3. **Load (Stage)**: Insert cleaned data into AWS RDS PostgreSQL.
-4. **Load (Warehouse)**: Move data from RDS to AWS Redshift.
-5. **Automate**: Schedule the workflow using Apache Airflow.
 
-![alt text](docs/News_API_Architecture.png)
+## Data Workflow
+
+**Extract**
+
+Airflow task calls the News API and fetches technology headlines.
+
+**Transform**
+Data is normalized into a Pandas DataFrame.
+
+**Load (into RDS)**
+
+Data is inserted into a PostgreSQL table (news_articles).
+
+**Replicate (RDS → Redshift)**
+
+Airbyte syncs the data from RDS PostgreSQL into Redshift.
+
+**Analyze**
+
+Final data sits in Redshift, ready for querying and analytics.
+
+
 
 
 
