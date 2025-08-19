@@ -21,7 +21,7 @@ The orchestration is done with Apache Airflow, and Airbyte is used to move data 
 
 - Redshift is used as the data warehouse for analytics.
 
-![alt text](docs/News_API_data_Architecture.png)
+![alt text](image.png)
 
 ##  Tech Stack
 - **Python** — Data extraction & transformation
