@@ -1,7 +1,7 @@
 FROM apache/airflow:2.10.0
 
-WORKDIR /
+WORKDIR /newsdata
 
-COPY . /
+COPY . /newsdata
 
 RUN pip install -r requirements.txt
