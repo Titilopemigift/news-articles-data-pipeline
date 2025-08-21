@@ -31,6 +31,7 @@ The orchestration is done with Apache Airflow, and Airbyte is used to move data 
 ![alt text](docs/news_article_table.png)
 - **Amazon Redshift** — Data warehouse for analytics
 - **Terraform** — Infrastructure as Code (IaC)
+- **Airbyte** — Replicate data from RDS to Redshift
 - **Apache Airflow** — Workflow orchestration
 
 ![alt text](docs/news_task.png)
